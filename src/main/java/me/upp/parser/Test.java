@@ -4,6 +4,8 @@ import org.yuanheng.cookcc.CookCCOption;
 import org.yuanheng.cookcc.Lex;
 import org.yuanheng.cookcc.Lexs;
 
+import java.io.IOException;
+
 @CookCCOption(lexerTable = "compressed", parserTable = "compressed")
 public class Test extends Parser {
 
@@ -22,6 +24,11 @@ public class Test extends Parser {
         return null;
     }
 
-    @Lex (pattern = "<<EOF>>", token = "$")
+    @Lex(pattern = ".")
+    protected void invalidCharacter() throws IOException {
+        throw new IOException("Caracter no valido: " + yyText ());
+    }
+
+    @Lex(pattern = "<<EOF>>", token = "$")
     protected void parseEOF () { }
 }
