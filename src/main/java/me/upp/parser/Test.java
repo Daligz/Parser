@@ -25,4 +25,9 @@ public class Test extends Parser {
     protected String parseDiv() {
         return yyText();
     }
+
+    @Lex(pattern = "\\=", token = "EQUALS")
+    protected String parseEquals() {
+        return yyText();
+    }
 }
