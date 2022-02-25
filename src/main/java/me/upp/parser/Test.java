@@ -20,4 +20,9 @@ public class Test extends Parser {
     protected String parseMinus() {
         return yyText();
     }
+
+    @Lex(pattern = "\\/", token = "DIV")
+    protected String parseDiv() {
+        return yyText();
+    }
 }
