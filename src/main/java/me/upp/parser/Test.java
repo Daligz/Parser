@@ -30,4 +30,7 @@ public class Test extends Parser {
     protected String parseEquals() {
         return yyText();
     }
+
+    @Lex (pattern = "<<EOF>>", token = "$")
+    protected void parseEOF () { }
 }
