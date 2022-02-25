@@ -15,9 +15,10 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.objectweb.joram</groupId>
-            <artifactId>jcup</artifactId>
-            <version>5.3.1</version>
+            <groupId>org.yuanheng.cookcc</groupId>
+            <artifactId>cookcc</artifactId>
+            <version>0.4.3</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 </project>
