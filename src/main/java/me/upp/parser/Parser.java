@@ -1,10 +1,5 @@
 package me.upp.parser;
 
-public class Parser {
+import org.yuanheng.cookcc.CookCCByte;
 
-    public static final String EXPRESSION = "id+id-id=id+id-id/id";
-
-    public static void main(final String[] args) {
-        
-    }
-}
+public class Parser extends CookCCByte { }

@@ -1,8 +1,8 @@
 package me.upp.parser;
 
-public class Test {
+import org.yuanheng.cookcc.CookCCOption;
 
-    public void compute(final String expression) {
-
-    }
+@CookCCOption(lexerTable = "compressed", parserTable = "compressed")
+public class Test extends Parser {
+    
 }
