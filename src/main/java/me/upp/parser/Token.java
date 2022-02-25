@@ -5,5 +5,8 @@ import org.yuanheng.cookcc.TokenGroup;
 
 @CookCCToken
 public enum Token {
-    @TokenGroup ID;
+    @TokenGroup
+    ID,
+    @TokenGroup
+    PLUS, MINUS, DIV, EQUALS;
 }
