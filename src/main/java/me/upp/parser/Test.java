@@ -15,4 +15,9 @@ public class Test extends Parser {
     protected String parsePlus() {
         return yyText();
     }
+
+    @Lex(pattern = "\\-", token = "MINUS")
+    protected String parseMinus() {
+        return yyText();
+    }
 }
