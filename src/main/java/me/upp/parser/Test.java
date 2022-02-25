@@ -10,4 +10,9 @@ public class Test extends Parser {
     protected String parseId() {
         return yyText();
     }
+
+    @Lex(pattern = "\\+", token = "PLUS")
+    protected String parsePlus() {
+        return yyText();
+    }
 }
