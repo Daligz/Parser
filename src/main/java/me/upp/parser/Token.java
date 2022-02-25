@@ -8,5 +8,5 @@ public enum Token {
     @TokenGroup
     ID,
     @TokenGroup
-    PLUS, MINUS, DIV, EQUALS;
+    ADD, SUB, DIV, ASSIGN;
 }

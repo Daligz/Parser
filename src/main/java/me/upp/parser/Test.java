@@ -2,6 +2,7 @@ package me.upp.parser;
 
 import org.yuanheng.cookcc.CookCCOption;
 import org.yuanheng.cookcc.Lex;
+import org.yuanheng.cookcc.Lexs;
 
 @CookCCOption(lexerTable = "compressed", parserTable = "compressed")
 public class Test extends Parser {
@@ -11,24 +12,14 @@ public class Test extends Parser {
         return yyText();
     }
 
-    @Lex(pattern = "\\+", token = "PLUS")
-    protected String parsePlus() {
-        return yyText();
-    }
-
-    @Lex(pattern = "\\-", token = "MINUS")
-    protected String parseMinus() {
-        return yyText();
-    }
-
-    @Lex(pattern = "\\/", token = "DIV")
-    protected String parseDiv() {
-        return yyText();
-    }
-
-    @Lex(pattern = "\\=", token = "EQUALS")
-    protected String parseEquals() {
-        return yyText();
+    @Lexs(patterns = {
+        @Lex (pattern = "[=]", token = "ASSIGN"),
+        @Lex (pattern = "[+]", token = "ADD"),
+        @Lex (pattern = "\\-", token = "SUB"),
+        @Lex (pattern = "[/]", token = "DIV"),
+    })
+    protected Object parseOp() {
+        return null;
     }
 
     @Lex (pattern = "<<EOF>>", token = "$")
