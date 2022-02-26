@@ -3,10 +3,11 @@ package me.upp.parser;
 import org.yuanheng.cookcc.CookCCOption;
 import org.yuanheng.cookcc.Lex;
 import org.yuanheng.cookcc.Lexs;
+import org.yuanheng.cookcc.Rule;
 
 import java.io.IOException;
 
-@CookCCOption(lexerTable = "compressed", parserTable = "compressed")
+@CookCCOption
 public class Test extends Parser {
 
     @Lex(pattern = "([a-zA-Z]+)|([0-9]+)", token = "ID")
@@ -31,4 +32,9 @@ public class Test extends Parser {
 
     @Lex(pattern = "<<EOF>>", token = "$")
     protected void parseEOF () { }
+
+    //id+id-id=id+id-id/id
+    @Rule(lhs = "expr", rhs = "ID+ID-ID=ID+ID-ID/ID")
+    protected void parseExpression() {
+    }
 }
