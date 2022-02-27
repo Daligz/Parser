@@ -1,4 +1,4 @@
-package me.upp;
+package me.upp.parser.generated;
 
 import java_cup.runtime.Symbol;
 
