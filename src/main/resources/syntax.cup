@@ -1,0 +1,23 @@
+package me.upp.parser.generated;
+
+import com.github.jhoenicke.javacup.runtime.Symbol;
+
+parser code
+{:
+    private Symbol symbol;
+
+    public void syntax_error(Symbol symbol) {
+        this.symbol = symbol;
+    }
+
+    public Symbol getSymbol() {
+        return this.symbol;
+    }
+:};
+terminal sum, res, igu, div, id;
+
+nonterminal INPUT;
+
+start with INPUT;
+
+INPUT ::= id sum id res id igu id sum id res id div id;
