@@ -19,7 +19,7 @@ public class CupGenerator {
     static {
         try {
             URL_SYM = Paths.get("sym.java").toUri().toURL();
-            URL_SYNTAX = Paths.get("syntax.java").toUri().toURL();
+            URL_SYNTAX = Paths.get("Syntax.java").toUri().toURL();
         } catch (final MalformedURLException malformedURLException) {
             malformedURLException.printStackTrace();
         }
@@ -32,7 +32,7 @@ public class CupGenerator {
             return;
         }
         final File file = Paths.get(resource.toURI()).toFile();
-        final String[] parameters = { "-parser", "syntax", file.getPath() };
+        final String[] parameters = { "-parser", "Syntax", file.getPath() };
         checkFiles(URL_SYM, URL_SYNTAX);
         // Cup main class
         Main.main(parameters);
@@ -43,7 +43,7 @@ public class CupGenerator {
         final File toLocation = new File(PATH_GENERATED_FILES);
         if (toLocation.mkdir()) System.out.println("Folder created from generated classes!");
         moveFile(URL_SYM, new File(toLocation, "sym.java").toURI().toURL());
-        moveFile(URL_SYNTAX, new File(toLocation, "syntax.java").toURI().toURL());
+        moveFile(URL_SYNTAX, new File(toLocation, "Syntax.java").toURI().toURL());
         System.out.println("Files generated successfully!");
     }
 
