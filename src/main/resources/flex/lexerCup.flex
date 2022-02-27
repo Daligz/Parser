@@ -1,6 +1,6 @@
 package me.upp.parser.generated;
 
-import com.github.jhoenicke.javacup.runtime.Symbol;
+import java_cup.runtime.Symbol;
 
 %%
 %class LexerCup
@@ -25,10 +25,10 @@ spaces = [ ,\t,\r, \n]+
 
 {spaces} {/*Ignore*/}
 
-( "=" ) { return new Symbol(sym.igu, yychar, yyline, yytext()); }
-( "+" ) { return new Symbol(sym.sum, yychar, yyline, yytext()); }
-( "-" ) { return new Symbol(sym.res, yychar, yyline, yytext()); }
-( "/" ) { return new Symbol(sym.div, yychar, yyline, yytext()); }
-{TXT}({TXT}|{VAL})* { return new Symbol(sym.id, yychar, yyline, yytext()); }
-("(-"{VAL}+")")|{VAL}+ { return new Symbol(sym.id, yychar, yyline, yytext()); }
- . { return new Symbol(sym.error, yychar, yyline, yytext()); }
+( "=" ) { return new Symbol(sym.igu, (int) yychar, yyline, yytext()); }
+( "+" ) { return new Symbol(sym.sum, (int) yychar, yyline, yytext()); }
+( "-" ) { return new Symbol(sym.res, (int) yychar, yyline, yytext()); }
+( "/" ) { return new Symbol(sym.div, (int) yychar, yyline, yytext()); }
+{TXT}({TXT}|{VAL})* { return new Symbol(sym.id, (int) yychar, yyline, yytext()); }
+("(-"{VAL}+")")|{VAL}+ { return new Symbol(sym.id, (int) yychar, yyline, yytext()); }
+ . { return new Symbol(sym.error, (int) yychar, yyline, yytext()); }

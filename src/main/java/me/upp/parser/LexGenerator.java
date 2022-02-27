@@ -19,7 +19,6 @@ public class LexGenerator {
         final File toLocation = new File(CupGenerator.PATH_GENERATED_FILES);
         final Path path = Paths.get(PATH_LEXER);
         final URI lexerCupResource = path.toUri();
-        System.out.println("Code: " + lexerCupResource);
         Main.generate(new String[] { Paths.get(lexerCupResource).toFile().toString() });
         Files.move(new File("src/main/resources/flex/LexerCup.java").toPath(), new File(toLocation, "LexerCup.java").toPath(), StandardCopyOption.REPLACE_EXISTING);
     }
