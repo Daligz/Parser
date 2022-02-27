@@ -13,12 +13,18 @@
         <maven.compiler.target>17</maven.compiler.target>
     </properties>
 
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
+
     <dependencies>
         <dependency>
-            <groupId>org.yuanheng.cookcc</groupId>
-            <artifactId>cookcc</artifactId>
-            <version>0.4.3</version>
-            <scope>compile</scope>
+            <groupId>com.github.ultimate-pa</groupId>
+            <artifactId>javacup</artifactId>
+            <version>master-3bc8a8fadb-1</version>
         </dependency>
     </dependencies>
 </project>

@@ -1,5 +1,8 @@
 package me.upp.parser;
 
-import org.yuanheng.cookcc.CookCCByte;
+public class Parser {
 
-public class Parser extends CookCCByte { }
+    public static void main(final String[] args) {
+
+    }
+}
