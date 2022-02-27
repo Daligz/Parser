@@ -1,10 +1,10 @@
 package me.upp.parser.generated;
 
-import java_cup.runtime.Symbol;
+import com.github.jhoenicke.javacup.runtime.Symbol;
 
 %%
 %class LexerCup
-%type java_cup.runtime.Symbol
+%type com.github.jhoenicke.javacup.runtime.Symbol
 %cup
 %full
 %line
