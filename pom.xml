@@ -30,11 +30,18 @@
         </plugins>
     </build>
 
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
+
     <dependencies>
         <dependency>
-            <groupId>edu.princeton.cup</groupId>
-            <artifactId>java-cup</artifactId>
-            <version>10k</version>
+            <groupId>com.github.ultimate-pa</groupId>
+            <artifactId>javacup</artifactId>
+            <version>master-3bc8a8fadb-1</version>
         </dependency>
     </dependencies>
 </project>
