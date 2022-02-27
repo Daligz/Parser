@@ -4,7 +4,7 @@ import com.github.jhoenicke.javacup.runtime.Symbol;
 
 %%
 %class LexerCup
-%type com.github.jhoenicke.javacup.runtime.Symbol
+%type java_cup.runtime.Symbol
 %cup
 %full
 %line

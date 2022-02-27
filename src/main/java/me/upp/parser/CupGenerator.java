@@ -13,7 +13,7 @@ import java.nio.file.StandardCopyOption;
 
 public class CupGenerator {
 
-    private static final String PATH_GENERATED_FILES = "src/main/java/me/upp/parser/generated";
+    public static final String PATH_GENERATED_FILES = "src/main/java/me/upp/parser/generated";
     private static URL URL_SYM, URL_SYNTAX;
 
     static {

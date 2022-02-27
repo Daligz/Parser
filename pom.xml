@@ -14,20 +14,11 @@
     </properties>
 
     <build>
-        <plugins>
-            <plugin>
-                <groupId>de.jflex</groupId>
-                <artifactId>jflex-maven-plugin</artifactId>
-                <version>1.8.2</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
+        <resources>
+            <resource>
+                <directory>/src/main/resources/</directory>
+            </resource>
+        </resources>
     </build>
 
     <repositories>
@@ -42,6 +33,11 @@
             <groupId>com.github.ultimate-pa</groupId>
             <artifactId>javacup</artifactId>
             <version>master-3bc8a8fadb-1</version>
+        </dependency>
+        <dependency>
+            <groupId>de.jflex</groupId>
+            <artifactId>jflex</artifactId>
+            <version>1.8.2</version>
         </dependency>
     </dependencies>
 </project>
