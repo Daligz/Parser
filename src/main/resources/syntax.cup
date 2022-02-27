@@ -1,6 +1,6 @@
 package me.upp.parser.generated;
 
-import java_cup.runtime.Symbol;
+import com.github.jhoenicke.javacup.runtime.Symbol;
 
 parser code
 {:
@@ -13,7 +13,6 @@ parser code
     public Symbol getSymbol() {
         return this.symbol;
     }
-}
 :};
 terminal sum, res, igu, div, id;
 
