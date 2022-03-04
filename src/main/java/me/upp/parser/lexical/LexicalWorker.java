@@ -2,6 +2,7 @@ package me.upp.parser.lexical;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import me.upp.parser.Worker;
 import me.upp.parser.lexical.expressions.Expressions;
 import me.upp.parser.lexical.tokens.Token;
 import me.upp.parser.lexical.tokens.TokenTypes;
@@ -15,7 +16,7 @@ import java.util.regex.Pattern;
 
 @Getter
 @AllArgsConstructor
-public class Worker {
+public class LexicalWorker implements Worker {
 
     private String expression;
     private final Map<TokenTypes, List<Token>> tokens = new HashMap<>() {{

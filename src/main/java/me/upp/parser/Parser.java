@@ -1,11 +1,11 @@
 package me.upp.parser;
 
-import me.upp.parser.lexical.Worker;
+import me.upp.parser.lexical.LexicalWorker;
 
 public class Parser {
 
     public static void main(final String[] args) {
-        final Worker worker = new Worker("* ** ( ) () )(& ^ %^  123123 123 2 id+id-id=id+id-id/id");
+        final LexicalWorker worker = new LexicalWorker("* ** ( ) () )(& ^ %^  123123 123 2 id+id-id=id+id-id/id");
         worker.compute();
         worker.print();
         worker.check();
