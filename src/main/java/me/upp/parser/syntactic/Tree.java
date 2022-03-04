@@ -16,21 +16,23 @@ public class Tree {
             if (grammar.isTerminal(grammar.getFirst())) {
                 this.nodes.add(grammar.getFirst());
             } else {
-                final Grammar toGrammar = Grammar.toGrammar(grammar.getFirst());
-                if (toGrammar != null) this.generate(toGrammar);
+                this.toGrammarUpdate(grammar.getFirst());
             }
             if (grammar.isTerminal(grammar.getOperator())) {
                 this.nodes.add(grammar.getOperator());
             } else {
-                final Grammar toGrammar = Grammar.toGrammar(grammar.getOperator());
-                if (toGrammar != null) this.generate(toGrammar);
+                this.toGrammarUpdate(grammar.getOperator());
             }
             if (grammar.isTerminal(grammar.getSecond())) {
                 this.nodes.add(grammar.getSecond());
             } else {
-                final Grammar toGrammar = Grammar.toGrammar(grammar.getSecond());
-                if (toGrammar != null) this.generate(toGrammar);
+                this.toGrammarUpdate(grammar.getSecond());
             }
         }
+    }
+
+    private void toGrammarUpdate(final Enum<?> defEnum) {
+        final Grammar toGrammar = Grammar.toGrammar(defEnum);
+        if (toGrammar != null) this.generate(toGrammar);
     }
 }

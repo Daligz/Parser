@@ -21,7 +21,7 @@ public class Parser {
         final Tree tree = new Tree();
         tree.generate(Grammar.E);
         tree.getNodes().forEach(anEnum -> {
-            System.out.println(anEnum);
+            System.out.print(anEnum + ", ");
         });
         System.out.println();
     }
