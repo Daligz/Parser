@@ -7,7 +7,7 @@ import me.upp.parser.syntactic.SyntacticWorker;
 public class Parser {
 
     public static void main(final String[] args) {
-        final String expression = "id+id-id=id+id-id/id";
+        final String expression = "id+id";
         final LexicalWorker lexicalWorker = new LexicalWorker(expression);
         lexicalWorker.compute();
         lexicalWorker.print();

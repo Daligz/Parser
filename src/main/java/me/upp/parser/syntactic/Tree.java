@@ -35,7 +35,7 @@ public class Tree {
         }
     }
 
-    private void regenerate(final Grammar grammar) {
+    public void regenerate(final Grammar grammar) {
         this.nodes.clear();
         this.generate(grammar);
     }

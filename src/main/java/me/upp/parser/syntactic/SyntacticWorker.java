@@ -4,11 +4,14 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import me.upp.parser.Worker;
 import me.upp.parser.lexical.LexicalWorker;
+import me.upp.parser.lexical.tokens.Token;
 import me.upp.parser.syntactic.pys.Firsts;
 import me.upp.parser.syntactic.pys.Nexts;
 import me.upp.parser.syntactic.pys.Terminals;
 
+import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.stream.Collectors;
 
 @Getter
 @AllArgsConstructor
@@ -25,6 +28,7 @@ public class SyntacticWorker implements Worker {
             computedExpression.updateAndGet(value -> value.replaceFirst(token.getPattern().toString(), ""));
             System.out.println(computedExpression.get() + " | " + token.getValue());
         }));
+        System.out.println();
         computedExpression.updateAndGet(String::trim);
         if (computedExpression.get().isEmpty() || computedExpression.get().isBlank()) {
             System.out.println("Successful expression");
@@ -34,6 +38,24 @@ public class SyntacticWorker implements Worker {
                 System.out.println("Error: " + error);
             }
         }
+    }
+
+    @Override
+    public boolean check() {
+        this.lexicalWorker.getTokens().forEach((tokenTypes, tokens) -> {
+            final List<String> grammars = tokens
+                    .stream()
+                    .map(Token::getValue)
+                    .filter(value -> Grammar.fromSymbolToTerminal(value) != null)
+                    .collect(Collectors.toList());
+            final List<Grammar> computedGrammars = Grammar.getFromOperator(grammars);
+            computedGrammars.forEach(grammar -> {
+                final Tree tree = new Tree();
+                tree.regenerate(grammar);
+                final List<Enum<?>> nodes = tree.getNodes();
+            });
+        });
+        return true;
     }
 
     public void printFirsts() {

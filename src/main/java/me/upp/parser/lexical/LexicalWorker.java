@@ -25,6 +25,7 @@ public class LexicalWorker implements Worker {
         put(TokenTypes.OPERATORS, new ArrayList<>());
     }};
 
+    @Override
     public void compute() {
         for (final Pattern pattern : Expressions.PATTERNS) {
             final Matcher matcher = pattern.matcher(this.expression);
@@ -37,16 +38,7 @@ public class LexicalWorker implements Worker {
         }
     }
 
-    public void print() {
-        this.tokens.forEach((tokenTypes, tokens) -> {
-            System.out.println(tokenTypes.name());
-            System.out.println("-------------------------");
-            tokens.forEach(System.out::println);
-            System.out.println("-------------------------");
-            System.out.println("");
-        });
-    }
-
+    @Override
     public boolean check() {
         this.tokens.forEach((tokenTypes, tokens) -> tokens.forEach(token -> this.expression = expression.replace(token.getValue(), "")));
         this.expression = this.expression.trim();
@@ -58,5 +50,15 @@ public class LexicalWorker implements Worker {
             return false;
         }
         return true;
+    }
+
+    public void print() {
+        this.tokens.forEach((tokenTypes, tokens) -> {
+            System.out.println(tokenTypes.name());
+            System.out.println("-------------------------");
+            tokens.forEach(System.out::println);
+            System.out.println("-------------------------");
+            System.out.println("");
+        });
     }
 }
