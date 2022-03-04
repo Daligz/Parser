@@ -1,0 +1,27 @@
+id+id-id=id+id-id/id
+id + id - id = id + id - id / id
+
+id=id
+id-id
+id/id
+id+id
+
+E -> A=B
+A -> C-D
+B -> B/D
+B -> C-D
+C -> D+D
+D -> num|id
+
+P(E) = {num, id}
+P(A) = {num, id}
+P(B) = {num, id}
+P(C) = {num, id}
+P(D) = {num, id}
+
+S(E) = {$}
+S(A) = {=}
+S(B) = {=, /}
+S(C) = {=}
+S(D) = {$, =, -, /, num, id}
+
