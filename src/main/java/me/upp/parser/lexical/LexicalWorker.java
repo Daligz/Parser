@@ -2,6 +2,7 @@ package me.upp.parser.lexical;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import me.upp.parser.Worker;
 import me.upp.parser.lexical.expressions.Expressions;
 import me.upp.parser.lexical.tokens.Token;
 import me.upp.parser.lexical.tokens.TokenTypes;
@@ -15,7 +16,7 @@ import java.util.regex.Pattern;
 
 @Getter
 @AllArgsConstructor
-public class Worker {
+public class LexicalWorker implements Worker {
 
     private String expression;
     private final Map<TokenTypes, List<Token>> tokens = new HashMap<>() {{
@@ -24,6 +25,7 @@ public class Worker {
         put(TokenTypes.OPERATORS, new ArrayList<>());
     }};
 
+    @Override
     public void compute() {
         for (final Pattern pattern : Expressions.PATTERNS) {
             final Matcher matcher = pattern.matcher(this.expression);
@@ -31,19 +33,9 @@ public class Worker {
                 final String group = matcher.group();
                 final TokenTypes tokenType = TokenTypes.getBySymbol(group);
                 final List<Token> tokens = this.tokens.get(tokenType);
-                tokens.add(new Token(tokenType, tokens.size(), group));
+                tokens.add(new Token(tokenType, tokens.size(), group, pattern));
             }
         }
-    }
-
-    public void print() {
-        this.tokens.forEach((tokenTypes, tokens) -> {
-            System.out.println(tokenTypes.name());
-            System.out.println("-------------------------");
-            tokens.forEach(System.out::println);
-            System.out.println("-------------------------");
-            System.out.println("");
-        });
     }
 
     public boolean check() {
@@ -57,5 +49,15 @@ public class Worker {
             return false;
         }
         return true;
+    }
+
+    public void print() {
+        this.tokens.forEach((tokenTypes, tokens) -> {
+            System.out.println(tokenTypes.name());
+            System.out.println("-------------------------");
+            tokens.forEach(System.out::println);
+            System.out.println("-------------------------");
+            System.out.println("");
+        });
     }
 }
