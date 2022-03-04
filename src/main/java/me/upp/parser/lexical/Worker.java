@@ -2,6 +2,7 @@ package me.upp.parser.lexical;
 
 import lombok.AllArgsConstructor;
 import me.upp.parser.lexical.expressions.Expressions;
+import me.upp.parser.lexical.tokens.TokenTypes;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -15,16 +16,11 @@ public class Worker {
         for (final Pattern pattern : Expressions.PATTERNS) {
             final Matcher matcher = pattern.matcher(this.expression);
             while (matcher.find()) {
-                System.out.println(matcher.group());
+                final String group = matcher.group();
+                System.out.println(group);
+                final TokenTypes bySymbol = TokenTypes.getBySymbol(group);
+                if (bySymbol != null) System.out.println(" | Symbol: " + bySymbol.name());
             }
         }
-    }
-
-    public void print() {
-
-    }
-
-    public void check() {
-
     }
 }
