@@ -5,8 +5,7 @@ import lombok.Getter;
 import me.upp.parser.Worker;
 import me.upp.parser.syntactic.pys.Firsts;
 import me.upp.parser.syntactic.pys.Nexts;
-
-import java.util.Arrays;
+import me.upp.parser.syntactic.pys.Terminals;
 
 @Getter
 @AllArgsConstructor
@@ -20,7 +19,7 @@ public class SyntacticWorker implements Worker {
     public void printFirsts() {
         System.out.println("PRIMEROS");
         for (final Firsts first : Firsts.values()) {
-            System.out.print(first + " -> " + Arrays.toString(first.getTerminals()));
+            System.out.print(first + " -> " + Terminals.getValuesToPrint(first.getTerminals()));
             System.out.println();
         }
     }
@@ -28,7 +27,7 @@ public class SyntacticWorker implements Worker {
     public void printNexts() {
         System.out.println("SIGUIENTES");
         for (final Nexts next : Nexts.values()) {
-            System.out.print(next + " -> " + Arrays.toString(next.getTerminals()));
+            System.out.print(next + " -> " + Terminals.getValuesToPrint(next.getTerminals()));
             System.out.println();
         }
     }
