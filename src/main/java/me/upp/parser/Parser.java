@@ -21,12 +21,6 @@ public class Parser {
         System.out.println();
         syntacticWorker.printTree(Grammar.E);
         System.out.println();
-//        lexicalWorker.getTokens().forEach((tokenTypes, tokens) -> tokens.stream().map(Token::getValue).forEach(tokenValue -> {
-//            Enum<?> value = Grammar.fromSymbolToTerminal(tokenValue);
-//            if (value == null) value = Grammar.fromSymbolToNonTerminal(tokenValue);
-//            if (value == null) return;
-//            System.out.printf("%s - %s%n", tokenValue, value);
-//        }));
         syntacticWorker.compute();
     }
 }

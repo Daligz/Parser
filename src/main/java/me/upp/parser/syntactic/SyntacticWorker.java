@@ -19,6 +19,7 @@ public class SyntacticWorker implements Worker {
 
     @Override
     public void compute() {
+        System.out.println("Expression: " + this.expression);
         AtomicReference<String> computedExpression = new AtomicReference<>(this.expression);
         this.lexicalWorker.getTokens().forEach((tokenTypes, tokens) -> tokens.forEach(token -> {
             computedExpression.updateAndGet(value -> value.replaceFirst(token.getPattern().toString(), ""));
@@ -28,7 +29,10 @@ public class SyntacticWorker implements Worker {
         if (computedExpression.get().isEmpty() || computedExpression.get().isBlank()) {
             System.out.println("Successful expression");
         } else {
-            System.out.println("Error: " + computedExpression.get());
+            final String[] errors = computedExpression.get().split(" ");
+            for (final String error : errors) {
+                System.out.println("Error: " + error);
+            }
         }
     }
 
