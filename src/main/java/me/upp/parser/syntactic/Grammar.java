@@ -12,15 +12,14 @@ import java.util.List;
 @AllArgsConstructor
 public enum Grammar {
 
-    E(NonTerminals.A, Terminals.EQUAL, NonTerminals.B, null),
-    A(NonTerminals.C, Terminals.SUB, NonTerminals.D, Grammar.E),
-    B1(NonTerminals.B, Terminals.DIV, NonTerminals.D, Grammar.A),
-    B2(NonTerminals.C, Terminals.SUB, NonTerminals.D, Grammar.B1),
-    C(NonTerminals.D, Terminals.SUM, NonTerminals.D, Grammar.B2),
-    D(Terminals.NUM, Terminals.OR, Terminals.ID, Grammar.C);
+    E(NonTerminals.A, Terminals.EQUAL, NonTerminals.B),
+    A(NonTerminals.C, Terminals.SUB, NonTerminals.D),
+    B1(NonTerminals.B, Terminals.DIV, NonTerminals.D),
+    B2(NonTerminals.C, Terminals.SUB, NonTerminals.D),
+    C(NonTerminals.D, Terminals.SUM, NonTerminals.D),
+    D(Terminals.NUM, Terminals.OR, Terminals.ID);
 
     private final Enum<?> first, operator, second;
-    private final Grammar previous;
 
     public static List<Grammar> getFromOperator(final List<String> terminals) {
         final List<Grammar> computedGrammars = new ArrayList<>();
@@ -36,11 +35,6 @@ public enum Grammar {
 
     public static Terminals fromSymbolToTerminal(final String symbol) {
         for (final Terminals terminal : Terminals.values()) if (terminal.getValue().equalsIgnoreCase(symbol)) return terminal;
-        return null;
-    }
-
-    public static NonTerminals fromSymbolToNonTerminal(final String symbol) {
-        for (final NonTerminals nonTerminal : NonTerminals.values()) if (nonTerminal.name().equalsIgnoreCase(symbol)) return nonTerminal;
         return null;
     }
 

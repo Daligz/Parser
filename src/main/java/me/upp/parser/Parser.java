@@ -11,7 +11,7 @@ public class Parser {
         final LexicalWorker lexicalWorker = new LexicalWorker(expression);
         lexicalWorker.compute();
         lexicalWorker.print();
-        lexicalWorker.check();
+        if (!(lexicalWorker.check())) return;
         final SyntacticWorker syntacticWorker = new SyntacticWorker(expression, lexicalWorker);
         syntacticWorker.printFirsts();
         System.out.println();
@@ -22,5 +22,6 @@ public class Parser {
         syntacticWorker.printTree(Grammar.E);
         System.out.println();
         syntacticWorker.compute();
+        System.out.println();
     }
 }

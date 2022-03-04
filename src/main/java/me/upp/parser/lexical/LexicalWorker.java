@@ -38,7 +38,6 @@ public class LexicalWorker implements Worker {
         }
     }
 
-    @Override
     public boolean check() {
         this.tokens.forEach((tokenTypes, tokens) -> tokens.forEach(token -> this.expression = expression.replace(token.getValue(), "")));
         this.expression = this.expression.trim();
