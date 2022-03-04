@@ -11,5 +11,7 @@ public class Parser {
 //        worker.check();
         final SyntacticWorker syntacticWorker = new SyntacticWorker();
         syntacticWorker.printFirsts();
+        System.out.println();
+        syntacticWorker.printNexts();
     }
 }
