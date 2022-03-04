@@ -1,6 +1,7 @@
 package me.upp.parser.lexical;
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import me.upp.parser.lexical.expressions.Expressions;
 import me.upp.parser.lexical.tokens.Token;
 import me.upp.parser.lexical.tokens.TokenTypes;
@@ -12,6 +13,7 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+@Getter
 @AllArgsConstructor
 public class Worker {
 
