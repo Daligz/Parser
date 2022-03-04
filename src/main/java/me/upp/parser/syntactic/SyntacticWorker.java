@@ -31,4 +31,12 @@ public class SyntacticWorker implements Worker {
             System.out.println();
         }
     }
+
+    public void printGrammar() {
+        System.out.println("GRAMATICA");
+        for (final Grammar grammar : Grammar.values()) {
+            System.out.print(grammar + " -> " + grammar.getValueToPrint());
+            System.out.println();
+        }
+    }
 }

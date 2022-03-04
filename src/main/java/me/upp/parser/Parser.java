@@ -13,5 +13,7 @@ public class Parser {
         syntacticWorker.printFirsts();
         System.out.println();
         syntacticWorker.printNexts();
+        System.out.println();
+        syntacticWorker.printGrammar();
     }
 }
