@@ -50,7 +50,7 @@ public class Worker {
         if (!(this.expression.isBlank()) || !(this.expression.isEmpty())) {
             System.out.println("ERRORS");
             System.out.println("-------------------------");
-            for (final String exp : this.expression.split(" ")) System.out.println(exp);
+            for (final String symbol : this.expression.split(" ")) System.out.println(symbol);
             System.out.println("-------------------------");
             return false;
         }
