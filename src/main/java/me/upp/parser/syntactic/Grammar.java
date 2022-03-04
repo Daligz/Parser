@@ -26,7 +26,19 @@ public enum Grammar {
         );
     }
 
+    public static Grammar toGrammar(final Enum<?> defEnum) {
+        try {
+            return Grammar.valueOf(defEnum.name());
+        } catch (final Exception ex) {
+            return null;
+        }
+    }
+
     private String getPrintValue(final Enum<?> defEnum) {
-        return (defEnum instanceof Terminals) ? ((Terminals) defEnum).getValue() : defEnum.name();
+        return (this.isTerminal(defEnum)) ? ((Terminals) defEnum).getValue() : defEnum.name();
+    }
+
+    public boolean isTerminal(final Enum<?> defEnum) {
+        return (defEnum instanceof Terminals);
     }
 }

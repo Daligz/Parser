@@ -39,4 +39,9 @@ public class SyntacticWorker implements Worker {
             System.out.println();
         }
     }
+
+    public void printTree() {
+        System.out.println("ARBOL SINTACTICO");
+
+    }
 }
