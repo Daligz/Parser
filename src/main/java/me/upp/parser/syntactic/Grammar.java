@@ -46,10 +46,10 @@ public enum Grammar {
     }
 
     private String getPrintValue(final Enum<?> defEnum) {
-        return (this.isTerminal(defEnum)) ? ((Terminals) defEnum).getValue() : defEnum.name();
+        return (isTerminal(defEnum)) ? ((Terminals) defEnum).getValue() : defEnum.name();
     }
 
-    public boolean isTerminal(final Enum<?> defEnum) {
+    public static boolean isTerminal(final Enum<?> defEnum) {
         return (defEnum instanceof Terminals);
     }
 }
