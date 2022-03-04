@@ -1,2 +1,2 @@
 # Parser
-Java parser built with JFlex and Cup
+Lexical and syntactic analyzer written in java
