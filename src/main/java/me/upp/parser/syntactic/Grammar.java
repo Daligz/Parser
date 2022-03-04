@@ -18,6 +18,16 @@ public enum Grammar {
 
     private final Enum<?> first, operator, second;
 
+    public static Terminals fromSymbolToTerminal(final String symbol) {
+        for (final Terminals terminal : Terminals.values()) if (terminal.getValue().equalsIgnoreCase(symbol)) return terminal;
+        return null;
+    }
+
+    public static NonTerminals fromSymbolToNonTerminal(final String symbol) {
+        for (final NonTerminals nonTerminal : NonTerminals.values()) if (nonTerminal.name().equalsIgnoreCase(symbol)) return nonTerminal;
+        return null;
+    }
+
     public String getValueToPrint() {
         return "%s %s %s".formatted(
                 this.getPrintValue(this.first),

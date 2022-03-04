@@ -45,5 +45,6 @@ public class SyntacticWorker implements Worker {
         final Tree tree = new Tree();
         tree.generate(firstGrammar);
         tree.getNodes().forEach(anEnum -> System.out.print(anEnum + ", "));
+        System.out.println();
     }
 }

@@ -3,6 +3,7 @@ package me.upp.parser;
 import me.upp.parser.lexical.LexicalWorker;
 import me.upp.parser.syntactic.Grammar;
 import me.upp.parser.syntactic.SyntacticWorker;
+import me.upp.parser.syntactic.pys.Terminals;
 
 public class Parser {
 
@@ -21,5 +22,19 @@ public class Parser {
         System.out.println();
         syntacticWorker.printTree(Grammar.E);
         System.out.println();
+        Enum<?> terminal = Grammar.fromSymbolToTerminal("id");
+        System.out.println("Terminal: " + terminal);
+        terminal = Grammar.fromSymbolToTerminal("+");
+        System.out.println("Terminal: " + terminal);
+        terminal = Grammar.fromSymbolToTerminal("num");
+        System.out.println("Terminal: " + terminal);
+        terminal = Grammar.fromSymbolToNonTerminal("e");
+        System.out.println("Terminal: " + terminal);
+        terminal = Grammar.fromSymbolToNonTerminal("c");
+        System.out.println("Terminal: " + terminal);
+        terminal = Grammar.fromSymbolToNonTerminal("d");
+        System.out.println("Terminal: " + terminal);
+        terminal = Grammar.fromSymbolToTerminal("=");
+        System.out.println("Terminal: " + terminal);
     }
 }
