@@ -3,17 +3,33 @@ package me.upp.parser.syntactic;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import me.upp.parser.Worker;
+import me.upp.parser.lexical.LexicalWorker;
 import me.upp.parser.syntactic.pys.Firsts;
 import me.upp.parser.syntactic.pys.Nexts;
 import me.upp.parser.syntactic.pys.Terminals;
+
+import java.util.concurrent.atomic.AtomicReference;
 
 @Getter
 @AllArgsConstructor
 public class SyntacticWorker implements Worker {
 
+    private final String expression;
+    private final LexicalWorker lexicalWorker;
+
     @Override
     public void compute() {
-
+        AtomicReference<String> computedExpression = new AtomicReference<>(this.expression);
+        this.lexicalWorker.getTokens().forEach((tokenTypes, tokens) -> tokens.forEach(token -> {
+            computedExpression.updateAndGet(value -> value.replaceFirst(token.getPattern().toString(), ""));
+            System.out.println(computedExpression.get() + " | " + token.getValue());
+        }));
+        computedExpression.updateAndGet(String::trim);
+        if (computedExpression.get().isEmpty() || computedExpression.get().isBlank()) {
+            System.out.println("Successful expression");
+        } else {
+            System.out.println("Error: " + computedExpression.get());
+        }
     }
 
     public void printFirsts() {

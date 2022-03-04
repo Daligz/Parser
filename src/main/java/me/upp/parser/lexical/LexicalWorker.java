@@ -32,7 +32,7 @@ public class LexicalWorker implements Worker {
                 final String group = matcher.group();
                 final TokenTypes tokenType = TokenTypes.getBySymbol(group);
                 final List<Token> tokens = this.tokens.get(tokenType);
-                tokens.add(new Token(tokenType, tokens.size(), group));
+                tokens.add(new Token(tokenType, tokens.size(), group, pattern));
             }
         }
     }

@@ -1,7 +1,6 @@
 package me.upp.parser;
 
 import me.upp.parser.lexical.LexicalWorker;
-import me.upp.parser.lexical.tokens.Token;
 import me.upp.parser.syntactic.Grammar;
 import me.upp.parser.syntactic.SyntacticWorker;
 
@@ -13,7 +12,7 @@ public class Parser {
         lexicalWorker.compute();
         lexicalWorker.print();
         lexicalWorker.check();
-        final SyntacticWorker syntacticWorker = new SyntacticWorker();
+        final SyntacticWorker syntacticWorker = new SyntacticWorker(expression, lexicalWorker);
         syntacticWorker.printFirsts();
         System.out.println();
         syntacticWorker.printNexts();
@@ -22,11 +21,12 @@ public class Parser {
         System.out.println();
         syntacticWorker.printTree(Grammar.E);
         System.out.println();
-        lexicalWorker.getTokens().forEach((tokenTypes, tokens) -> tokens.stream().map(Token::getValue).forEach(tokenValue -> {
-            Enum<?> value = Grammar.fromSymbolToTerminal(tokenValue);
-            if (value == null) value = Grammar.fromSymbolToNonTerminal(tokenValue);
-            if (value == null) return;
-            System.out.printf("%s - %s%n", tokenValue, value);
-        }));
+//        lexicalWorker.getTokens().forEach((tokenTypes, tokens) -> tokens.stream().map(Token::getValue).forEach(tokenValue -> {
+//            Enum<?> value = Grammar.fromSymbolToTerminal(tokenValue);
+//            if (value == null) value = Grammar.fromSymbolToNonTerminal(tokenValue);
+//            if (value == null) return;
+//            System.out.printf("%s - %s%n", tokenValue, value);
+//        }));
+        syntacticWorker.compute();
     }
 }
