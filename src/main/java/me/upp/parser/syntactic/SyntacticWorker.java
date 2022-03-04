@@ -22,7 +22,7 @@ public class SyntacticWorker implements Worker {
         System.out.println("EXPRESION (" + this.expression + ")");
         AtomicReference<String> computedExpression = new AtomicReference<>(this.expression);
         this.lexicalWorker.getTokens().forEach((tokenTypes, tokens) -> tokens.forEach(token -> {
-            computedExpression.updateAndGet(value -> value.replaceFirst(token.getPattern().toString(), ""));
+            computedExpression.updateAndGet(value -> value.replaceFirst(token.getPattern().toString(), " "));
             System.out.println(computedExpression.get() + " | " + token.getValue());
         }));
         System.out.println();

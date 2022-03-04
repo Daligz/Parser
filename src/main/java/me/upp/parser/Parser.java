@@ -4,10 +4,13 @@ import me.upp.parser.lexical.LexicalWorker;
 import me.upp.parser.syntactic.Grammar;
 import me.upp.parser.syntactic.SyntacticWorker;
 
+import java.util.Scanner;
+
 public class Parser {
 
     public static void main(final String[] args) {
-        final String expression = "id+id-id=id+id-id/id";
+        System.out.print("Expresion: ");
+        final String expression = new Scanner(System.in).next();
         final LexicalWorker lexicalWorker = new LexicalWorker(expression);
         lexicalWorker.compute();
         lexicalWorker.print();
