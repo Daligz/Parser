@@ -68,4 +68,14 @@ public class SyntacticWorker implements Worker {
         tree.getNodes().forEach(anEnum -> System.out.print(anEnum + ", "));
         System.out.println();
     }
+
+    public void printTable() {
+        System.out.println("TABLA SINTACTICA");
+        for (final Grammar grammar : Grammar.values()) {
+            System.out.println(grammar.name() + ":");
+            System.out.println(" " + Terminals.NUM.getValue() + " -> " + grammar.getValueToPrint());
+            System.out.println(" " + Terminals.ID.getValue() + " -> " + grammar.getValueToPrint());
+            System.out.println();
+        }
+    }
 }
