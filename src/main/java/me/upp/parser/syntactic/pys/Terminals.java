@@ -7,7 +7,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum Terminals {
     $("$"), EQUAL("="), DIV("/"), SUM("+"),
-    SUB("-"), NUM("num"), ID("id");
+    SUB("-"), NUM("num"), ID("id"), OR("|");
 
     private final String value;
 
