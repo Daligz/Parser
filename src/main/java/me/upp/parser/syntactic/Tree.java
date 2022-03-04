@@ -35,6 +35,11 @@ public class Tree {
         }
     }
 
+    private void regenerate(final Grammar grammar) {
+        this.nodes.clear();
+        this.generate(grammar);
+    }
+
     private void toGrammarUpdate(final Enum<?> defEnum) {
         final Grammar toGrammar = Grammar.toGrammar(defEnum);
         if (toGrammar != null) this.generate(toGrammar);
