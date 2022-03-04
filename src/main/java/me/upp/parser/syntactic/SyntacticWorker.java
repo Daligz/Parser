@@ -40,8 +40,10 @@ public class SyntacticWorker implements Worker {
         }
     }
 
-    public void printTree() {
+    public void printTree(final Grammar firstGrammar) {
         System.out.println("ARBOL SINTACTICO");
-
+        final Tree tree = new Tree();
+        tree.generate(firstGrammar);
+        tree.getNodes().forEach(anEnum -> System.out.print(anEnum + ", "));
     }
 }

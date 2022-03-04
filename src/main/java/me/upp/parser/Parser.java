@@ -2,7 +2,6 @@ package me.upp.parser;
 
 import me.upp.parser.syntactic.Grammar;
 import me.upp.parser.syntactic.SyntacticWorker;
-import me.upp.parser.syntactic.Tree;
 
 public class Parser {
 
@@ -18,11 +17,7 @@ public class Parser {
         System.out.println();
         syntacticWorker.printGrammar();
         System.out.println();
-        final Tree tree = new Tree();
-        tree.generate(Grammar.E);
-        tree.getNodes().forEach(anEnum -> {
-            System.out.print(anEnum + ", ");
-        });
+        syntacticWorker.printTree(Grammar.E);
         System.out.println();
     }
 }
