@@ -3,7 +3,6 @@ package me.upp.parser;
 import me.upp.parser.lexical.LexicalWorker;
 import me.upp.parser.syntactic.Grammar;
 import me.upp.parser.syntactic.SyntacticWorker;
-import me.upp.parser.syntactic.pys.Terminals;
 
 public class Parser {
 
@@ -29,11 +28,11 @@ public class Parser {
         terminal = Grammar.fromSymbolToTerminal("num");
         System.out.println("Terminal: " + terminal);
         terminal = Grammar.fromSymbolToNonTerminal("e");
-        System.out.println("Terminal: " + terminal);
+        System.out.println("NonTerminal: " + terminal);
         terminal = Grammar.fromSymbolToNonTerminal("c");
-        System.out.println("Terminal: " + terminal);
+        System.out.println("NonTerminal: " + terminal);
         terminal = Grammar.fromSymbolToNonTerminal("d");
-        System.out.println("Terminal: " + terminal);
+        System.out.println("NonTerminal: " + terminal);
         terminal = Grammar.fromSymbolToTerminal("=");
         System.out.println("Terminal: " + terminal);
     }
