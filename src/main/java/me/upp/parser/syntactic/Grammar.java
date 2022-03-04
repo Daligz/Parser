@@ -28,6 +28,7 @@ public enum Grammar {
 
     public static Grammar toGrammar(final Enum<?> defEnum) {
         try {
+            if (defEnum.name().startsWith("B")) return (Math.random() > 0.5d) ? Grammar.B1 : Grammar.B2;
             return Grammar.valueOf(defEnum.name());
         } catch (final Exception ex) {
             return null;
