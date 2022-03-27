@@ -39,7 +39,7 @@ public class LexicalWorker implements Worker {
     }
 
     public boolean check() {
-        this.tokens.forEach((tokenTypes, tokens) -> tokens.forEach(token -> this.expression = expression.replace(token.getValue(), "")));
+        this.tokens.forEach((tokenTypes, tokens) -> tokens.forEach(token -> this.expression = expression.replaceFirst(token.getPattern().toString(), "")));
         this.expression = this.expression.trim();
         if (!(this.expression.isBlank()) || !(this.expression.isEmpty())) {
             System.out.println("ERRORS");
