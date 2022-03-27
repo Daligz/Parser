@@ -9,6 +9,7 @@ import me.upp.parser.semantic.expressions.Expressions;
 
 import java.util.List;
 import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @AllArgsConstructor
 public class SemanticWorker implements Worker {
@@ -21,19 +22,15 @@ public class SemanticWorker implements Worker {
         final List<Token> tokens = ((LexicalWorker) this.lexicalWorker)
                 .getTokens()
                 .get(TokenTypes.OPERATORS);
-        final Matcher matcher = Expressions.PATTERN.matcher(this.expression);
         int matches = 0;
-        while (matcher.find()) {
-            System.out.println(matcher.group());
-            matches++;
+        for (final Pattern pattern : Expressions.PATTERNS) {
+            final Matcher matcher = pattern.matcher(this.expression);
+            while (matcher.find()) matches++;
         }
-        System.out.println("Matches: " + matches);
-        System.out.println("Matches (Lexical): " + tokens.size());
-        System.out.println();
         if (matches == tokens.size()) {
             System.out.println("Successful semantic expression");
         } else {
-            System.out.println("wrong semantic expression");
+            System.out.println("Wrong semantic expression");
         }
     }
 }
