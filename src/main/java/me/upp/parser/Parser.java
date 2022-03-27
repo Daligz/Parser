@@ -1,6 +1,7 @@
 package me.upp.parser;
 
 import me.upp.parser.lexical.LexicalWorker;
+import me.upp.parser.semantic.SemanticWorker;
 import me.upp.parser.syntactic.Grammar;
 import me.upp.parser.syntactic.SyntacticWorker;
 
@@ -27,5 +28,7 @@ public class Parser {
         syntacticWorker.printTable();
         System.out.println();
         syntacticWorker.compute();
+        final SemanticWorker semanticWorker = new SemanticWorker(expression, lexicalWorker);
+        semanticWorker.compute();
     }
 }
