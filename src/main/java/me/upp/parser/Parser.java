@@ -28,6 +28,7 @@ public class Parser {
         syntacticWorker.printTable();
         System.out.println();
         syntacticWorker.compute();
+        System.out.println();
         final SemanticWorker semanticWorker = new SemanticWorker(expression, lexicalWorker);
         semanticWorker.compute();
     }

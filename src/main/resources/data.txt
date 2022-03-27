@@ -1,6 +1,13 @@
 id+id-id=id+id-id/id
 id + id - id = id + id - id / id
 
+Semantic
+
+Successful: 12 + 5 - 0.5 = 1 + 2 - 1.5 / 25.21
+Error: a + b - 1 = 2 + 1 - a / g
+
+12+5-0.5=1+2-1.5/25.21
+
 id=id
 id-id
 id/id

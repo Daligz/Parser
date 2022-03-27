@@ -26,5 +26,11 @@ public class SemanticWorker implements Worker {
         while (matcher.find()) matches++;
         System.out.println("Matches: " + matches);
         System.out.println("Matches (Lexical): " + tokens.size());
+        System.out.println();
+        if (matches == tokens.size()) {
+            System.out.println("Successful semantic expression");
+        } else {
+            System.out.println("wrong semantic expression");
+        }
     }
 }
