@@ -1,6 +1,7 @@
 package me.upp.parser;
 
 import me.upp.parser.lexical.LexicalWorker;
+import me.upp.parser.semantic.SemanticWorker;
 import me.upp.parser.syntactic.Grammar;
 import me.upp.parser.syntactic.SyntacticWorker;
 
@@ -10,7 +11,7 @@ public class Parser {
 
     public static void main(final String[] args) {
         System.out.print("Expresion: ");
-        final String expression = new Scanner(System.in).next();
+        final String expression = new Scanner(System.in).nextLine();
         final LexicalWorker lexicalWorker = new LexicalWorker(expression);
         lexicalWorker.compute();
         lexicalWorker.print();
@@ -27,5 +28,8 @@ public class Parser {
         syntacticWorker.printTable();
         System.out.println();
         syntacticWorker.compute();
+        System.out.println();
+        final SemanticWorker semanticWorker = new SemanticWorker(expression, lexicalWorker);
+        semanticWorker.compute();
     }
 }
