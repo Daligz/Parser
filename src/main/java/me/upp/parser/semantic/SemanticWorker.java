@@ -23,7 +23,10 @@ public class SemanticWorker implements Worker {
                 .get(TokenTypes.OPERATORS);
         final Matcher matcher = Expressions.PATTERN.matcher(this.expression);
         int matches = 0;
-        while (matcher.find()) matches++;
+        while (matcher.find()) {
+            System.out.println(matcher.group());
+            matches++;
+        }
         System.out.println("Matches: " + matches);
         System.out.println("Matches (Lexical): " + tokens.size());
         System.out.println();
