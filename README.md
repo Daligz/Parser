@@ -1,2 +1,2 @@
 # Parser
-Lexical and syntactic analyzer written in java
+Lexical, syntactic and semantic analyzer written in java
