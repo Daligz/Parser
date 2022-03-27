@@ -2,10 +2,10 @@ package me.upp.parser.semantic;
 
 import lombok.AllArgsConstructor;
 import me.upp.parser.Worker;
+import me.upp.parser.lexical.LexicalWorker;
 import me.upp.parser.lexical.tokens.Token;
 import me.upp.parser.lexical.tokens.TokenTypes;
 import me.upp.parser.semantic.expressions.Expressions;
-import me.upp.parser.syntactic.SyntacticWorker;
 
 import java.util.List;
 import java.util.regex.Matcher;
@@ -14,12 +14,11 @@ import java.util.regex.Matcher;
 public class SemanticWorker implements Worker {
 
     private final String expression;
-    private final Worker syntacticWorker;
+    private final Worker lexicalWorker;
 
     @Override
     public void compute() {
-        final List<Token> tokens = ((SyntacticWorker) this.syntacticWorker)
-                .getLexicalWorker()
+        final List<Token> tokens = ((LexicalWorker) this.lexicalWorker)
                 .getTokens()
                 .get(TokenTypes.OPERATORS);
         final Matcher matcher = Expressions.PATTERN.matcher(this.expression);
