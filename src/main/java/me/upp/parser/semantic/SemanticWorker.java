@@ -34,6 +34,20 @@ public class SemanticWorker implements Worker {
             System.out.println("Successful semantic expression");
         } else {
             System.out.println("Wrong semantic expression");
+            this.printError();
         }
+    }
+
+    private void printError() {
+        String tempExp = this.expression;
+        for (final Pattern pattern : Expressions.PATTERNS) {
+            final Matcher matcher = pattern.matcher(this.expression);
+            while (matcher.find()) {
+                tempExp = tempExp.replaceFirst(matcher.pattern().toString(), "");
+            }
+        }
+        System.out.println();
+        System.out.println("Errors:");
+        System.out.println(tempExp);
     }
 }
