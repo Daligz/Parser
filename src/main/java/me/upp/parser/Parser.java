@@ -11,7 +11,10 @@ public class Parser {
 
     public static void main(final String[] args) {
         System.out.print("Expresion: ");
-        final String expression = new Scanner(System.in).nextLine();
+        final String expression = new Scanner(System.in)
+                .nextLine()
+                .trim()
+                .replace(" ", "#");
         final LexicalWorker lexicalWorker = new LexicalWorker(expression);
         lexicalWorker.compute();
         lexicalWorker.print();

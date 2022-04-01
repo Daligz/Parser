@@ -46,6 +46,9 @@ public class SemanticWorker implements Worker {
                 tempExp = tempExp.replaceFirst(matcher.pattern().toString(), "");
             }
         }
+        if (tempExp.trim().contains("#")) {
+
+        }
         System.out.println();
         System.out.println("Errors:");
         System.out.println(tempExp);
