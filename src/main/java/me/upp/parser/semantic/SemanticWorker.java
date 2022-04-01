@@ -47,7 +47,7 @@ public class SemanticWorker implements Worker {
             }
         }
         if (tempExp.trim().contains("#")) {
-
+            System.out.println("Se encontraron valores nulos!");
         }
         System.out.println();
         System.out.println("Errors:");

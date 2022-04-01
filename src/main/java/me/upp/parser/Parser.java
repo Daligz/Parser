@@ -13,7 +13,6 @@ public class Parser {
         System.out.print("Expresion: ");
         final String expression = new Scanner(System.in)
                 .nextLine()
-                .trim()
                 .replace(" ", "#");
         final LexicalWorker lexicalWorker = new LexicalWorker(expression);
         lexicalWorker.compute();
